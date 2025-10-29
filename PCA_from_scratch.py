@@ -23,3 +23,18 @@ def generate_sample_data_v2():
 
     print(data)
     return data
+
+def covariance_matrix(data):
+    data_centered = data - np.mean(data, axis=0)
+
+    n = data.shape[0]
+
+    #Covariance matrix formula: (X^T X) / (n - 1)
+    cov_matrix = (data_centered.T @ data_centered) / (n - 1)
+
+    print(cov_matrix)
+    return cov_matrix
+
+if __name__ == "__main__":
+    data = generate_sample_data_v2()
+    covariance_matrix(data)
